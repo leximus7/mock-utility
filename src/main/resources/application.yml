@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: mock-utility
+
+eureka:
+  client:
+    enabled: true
+server:
+  port: 9090
+
+application:
+  camunda:
+    name: CAMUNDA

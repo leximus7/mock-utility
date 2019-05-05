@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+</head>
+
+<body>
+<div class="block1">
+    <p><input name="businessKey" type="text" id="businessKey"></p>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" onclick="skipEBS()">Пропустить шаг проверки EBS</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary">Пропустить шаг проверки телефона</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    function skipEBS(){
+        var urlPar = "http://localhost:9090/complete-task/" + $("#businessKey").val();
+
+        $.ajax({
+            type: "POST",
+            url: urlPar ,
+            dataType: 'text',
+            success: function(data){
+                toastr.success(data);
+            },
+            error: function(){
+                toastr["error"]("My name is Inigo Montoya. You killed my father. Prepare to die!");
+                console.log("error!!!");
+            }
+
+        });
+    }
+</script>

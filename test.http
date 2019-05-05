@@ -1,0 +1,26 @@
+GET localhost:8080/rest/task/?processInstanceBusinessKey=1234
+content-type:application/json
+###
+
+GET localhost:8080/rest/task
+content-type:application/json
+
+###
+
+POST localhost:8080/rest/process-definition/key/WatchMunster/start
+content-type:application/json
+
+{
+"businessKey" : "12345"
+}
+
+
+###
+
+POST http://localhost:9090/complete-task/1234
+
+###
+
+GET localhost:8080/rest/task?processInstanceBusinessKey=1234
+
+###
